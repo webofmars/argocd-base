@@ -8,7 +8,19 @@ Will install the following componenents:
 * cert-manager
 * letsencrypt default cluster issuer
 
-## ROADMAP
+## usage
+
+You should first install argocd
+
+```sh
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# or if you don't want argocd UI
+# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+```
+
+## roadmap
 
 * [ ] metrics-server
+* [ ] prometheus stack
 * [ ] istio
