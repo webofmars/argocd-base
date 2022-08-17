@@ -19,7 +19,7 @@ spec:
             ssl-redirect: "true"
             use-forwarded-headers: "true"
           extraArgs:
-          - enable-ssl-passthrough
+            enable-ssl-passthrough: ''
           metrics:
             enabled: true
           podAnnotations:
