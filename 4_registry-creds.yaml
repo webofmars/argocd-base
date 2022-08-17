@@ -6,7 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    path: './manifest.yaml'
+    path: './'
+    directory:
+      include: 'manifest.yaml'
     repoURL: 'https://github.com/alexellis/registry-creds'
     targetRevision: 0.3.1
   destination:
