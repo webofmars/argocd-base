@@ -10,7 +10,7 @@ spec:
     directory:
       include: 'manifest.yaml'
     repoURL: 'https://github.com/alexellis/registry-creds'
-    targetRevision: 0.3.1
+    targetRevision: master
   destination:
     namespace: registry-creds-system
     server: 'https://kubernetes.default.svc'
