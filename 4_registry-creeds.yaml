@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: registry-creds
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: './manifest.yaml'
+    repoURL: 'https://github.com/alexellis/registry-creds'
+    targetRevision: 0.3.1
+    chart: cert-manager
+  destination:
+    namespace: registry-creds-system
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
