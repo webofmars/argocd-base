@@ -21,6 +21,30 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 # kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
 ```
 
+wait a bit ☕️ ...
+
+Apply the following manifest:
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./
+    repoURL: https://github.com/webofmars/argocd-base
+    targetRevision: v1.0.0
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+```
+
 ## roadmap
 
 * [ ] metrics-server
