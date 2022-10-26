@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo
+  namespace: argocd
+spec:
+  destination:
+    namespace: echo-server
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: echo-server
+    helm:
+      parameters:
+      - name: ingress.enabled
+        value: "true"
+      - name: ingress.hosts[0].host
+        value: echo-127.0.0.1.sslip.io
+      - name: ingress.hosts[0].paths[0]
+        value: /
+    repoURL: https://ealenn.github.io/charts
+    targetRevision: 0.5.0
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
