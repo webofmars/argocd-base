@@ -12,7 +12,7 @@ Will install the following componenents:
 
 ## usage
 
-You should first install argocd
+* You should first install argocd
 
 ```sh
 kubectl create namespace argocd
@@ -21,9 +21,15 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 # kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
 ```
 
-wait a bit ☕️ ...
+* wait a bit ☕️ ...
 
-Apply the following manifest:
+* Apply the default project manifest :
+
+```sh
+kubectl apply -n argocd -f https://raw.githubusercontent.com/webofmars/argocd-base/main/0_default-project.yaml
+```
+
+* Apply the app of apps manifest :
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
