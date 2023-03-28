@@ -26,7 +26,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 * Apply the default project manifest :
 
 ```sh
-kubectl apply -n argocd -f https://raw.githubusercontent.com/webofmars/argocd-base/main/0_default-project.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/webofmars/argocd-base/bootstrap/main.yaml
 ```
 
 * Apply the app of apps manifest :
@@ -44,11 +44,14 @@ spec:
   project: default
   source:
     path: ./
-    repoURL: https://github.com/webofmars/argocd-base
-    targetRevision: v1.0.0
+    repoURL: https://github.com/webofmars/argocd-base/argocd
+    targetRevision: HEAD # or check latest release if you want to pin a version
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 ```
 
 ## roadmap

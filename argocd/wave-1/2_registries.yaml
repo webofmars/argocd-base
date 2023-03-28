@@ -1,0 +1,35 @@
+apiVersion: ops.alexellis.io/v1
+kind: ClusterPullSecret
+metadata:
+  name: docker-registry
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  secretRef:
+    name: docker-registry
+    namespace: registry-creds-system
+---
+apiVersion: ops.alexellis.io/v1
+kind: ClusterPullSecret
+metadata:
+  name: ghcr
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  secretRef:
+    name: github-registry
+    namespace: registry-creds-system
+---
+apiVersion: ops.alexellis.io/v1
+kind: ClusterPullSecret
+metadata:
+  name: harbor-registry
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  secretRef:
+    name: harbor-registry
+    namespace: registry-creds-system
