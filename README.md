@@ -26,7 +26,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 * Apply the default project manifest :
 
 ```sh
-kubectl apply -n argocd -f https://raw.githubusercontent.com/webofmars/argocd-base/bootstrap/main.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/webofmars/argocd-base/main/bootstrap/main.yaml
 ```
 
 * Apply the app of apps manifest :
